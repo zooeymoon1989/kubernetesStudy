@@ -1,0 +1,8 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: sudo apt-get 
+      shell: sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get autoremove
+    - name: sudo apt 
+      shell: sudo apt update && sudo apt -y upgrade && sudo apt autoremove

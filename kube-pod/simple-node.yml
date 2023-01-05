@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: simple-node
+spec:
+  containers:
+    - image: zooeymoon1989/simple-node:latest
+      name: simple-node
+      ports:
+        - containerPort: 3000
+      imagePullPolicy: Always
+      resources:
+      livenessProbe:
+        httpGet:
+          path: /ping
+          port: 3000
+        initialDelaySeconds: 5
+        timeoutSeconds: 1
+        periodSeconds: 10
+        failureThreshold: 3
