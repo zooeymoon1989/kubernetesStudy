@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bandicoot
+  labels:
+    run: bandicoot
+spec:
+  # modify replicas according to your case
+  replicas: 3
+  selector:
+    matchLabels:
+        run: bandicoot
+  template:
+    metadata:
+        labels:
+          run: bandicoot
+    spec:
+      containers:
+      - name: bandicoot
+        image: gcr.io/kuar-demo/kuard-amd64:purple
+        ports:
+          - containerPort: 8080
