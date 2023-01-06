@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: alpaca
+  labels:
+    run: alpaca
+spec:
+  # modify replicas according to your case
+  replicas: 3
+  selector:
+    matchLabels:
+        run: alpaca
+  template:
+    metadata:
+        labels:
+          run: alpaca
+    spec:
+      containers:
+      - name: alpaca
+        image: gcr.io/kuar-demo/kuard-amd64:green
+        ports:
+          - containerPort: 8080
