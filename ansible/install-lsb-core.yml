@@ -1,0 +1,6 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: install lsb core
+      shell: sudo apt-get install lsb-core -y

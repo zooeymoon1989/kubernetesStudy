@@ -20,3 +20,7 @@
       args:
         chdir: $HOME
         creates: node_joined.txt
+
+# sudo kubeadm join 10.0.0.14:6443 --token iid2c6.1t4ovjnjmunju525 \
+# --discovery-token-ca-cert-hash sha256:af96659c34caff3d50b604f73002fe42fa639f35914d8d301486cd55853437fa \
+# --cri-socket=unix:///var/run/cri-dockerd.sock

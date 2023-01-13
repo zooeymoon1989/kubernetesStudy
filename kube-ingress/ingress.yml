@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: simple-ingress
+spec:
+  rules:
+  - host: www.liwenqiang.site
+    http:
+      paths:
+      - path: /golang
+        pathType: Prefix
+        backend:
+          service:
+            name: simple-golang
+            port:
+              number: 80
+      - path: /node
+        pathType: Prefix
+        backend:
+          service:
+            name: simple-node
+            port:
+              number: 80

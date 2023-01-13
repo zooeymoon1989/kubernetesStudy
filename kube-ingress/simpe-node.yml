@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: be-default
+  name: simple-node
   labels:
-    run: be-default
+    run: simple-node
 spec:
   # modify replicas according to your case
   replicas: 3
   selector:
     matchLabels:
-        run: be-default
+        run: simple-node
   template:
     metadata:
         labels:
-          run: be-default
+          run: simple-node
     spec:
       containers:
-      - name: be-default
-        image: gcr.io/kuar-demo/kuard-amd64:blue
+      - name: simple-node
+        image: zooeymoon1989/simple-node:latest
         ports:
-          - containerPort: 8080
+          - containerPort: 3000

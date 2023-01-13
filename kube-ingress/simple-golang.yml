@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: alpaca
+  name: simple-golang
   labels:
-    run: alpaca
+    run: simple-golang
 spec:
   # modify replicas according to your case
   replicas: 3
   selector:
     matchLabels:
-        run: alpaca
+        run: simple-golang
   template:
     metadata:
         labels:
-          run: alpaca
+          run: simple-golang
     spec:
       containers:
-      - name: alpaca
-        image: gcr.io/kuar-demo/kuard-amd64:green
+      - name: simple-golang
+        image: zooeymoon1989/simple-golang:latest
         ports:
-          - containerPort: 8080
+          - containerPort: 3000

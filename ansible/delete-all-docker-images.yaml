@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: stop all running containers
+      shell: docker stop $(docker ps -aq)
+    - name: delete all docker images 
+      shell: docker rmi $(docker images -qa)
+    - name: delete all docker containers
+      shell: docker rm $(docker ps -aq)
+
+

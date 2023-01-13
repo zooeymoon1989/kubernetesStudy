@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: bandicoot
+  name: nginx-app
   labels:
-    run: bandicoot
+    run: nginx-app
 spec:
   # modify replicas according to your case
   replicas: 3
   selector:
     matchLabels:
-        run: bandicoot
+        run: nginx-app
   template:
     metadata:
         labels:
-          run: bandicoot
+          run: nginx-app
     spec:
       containers:
-      - name: bandicoot
-        image: gcr.io/kuar-demo/kuard-amd64:purple
+      - name: nginx-app
+        image: nginx:alpine
         ports:
-          - containerPort: 8080
+          - containerPort: 80

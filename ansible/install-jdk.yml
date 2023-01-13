@@ -1,0 +1,6 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: install jdk11
+      shell: sudo apt install default-jdk -y
