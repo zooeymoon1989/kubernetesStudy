@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-golang
+  labels:
+    app: nginx
+    version: "1"
+  annotations:
+    kubernetes.io/change-cause: "update to golang"
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      app: simple-golang
+  template:
+    metadata:
+      labels:
+        app: simple-golang
+    spec:
+      containers:
+      - name: simple-golang
+        image: zooeymoon1989/simple-golang
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000

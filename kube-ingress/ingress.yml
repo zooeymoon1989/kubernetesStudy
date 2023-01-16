@@ -7,15 +7,28 @@ spec:
   - host: www.liwenqiang.site
     http:
       paths:
-      - path: /golang
-        pathType: Prefix
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: nginx-app
+            port:
+              number: 80
+  - host: golang.liwenqiang.site
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
         backend:
           service:
             name: simple-golang
             port:
               number: 80
-      - path: /node
-        pathType: Prefix
+  - host: node.liwenqiang.site
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
         backend:
           service:
             name: simple-node
