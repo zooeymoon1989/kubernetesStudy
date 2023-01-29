@@ -1,10 +1,13 @@
 [control_plane]
-control1 ansible_host=43.153.204.34 ansible_user=ubuntu 
+control1 ansible_host=43.155.144.80 ansible_user=root 
 
 [workers]
-worker1 ansible_host=43.156.128.153 ansible_user=ubuntu
-worker2 ansible_host=43.159.46.84 ansible_user=ubuntu
-worker3 ansible_host=43.134.168.11 ansible_user=ubuntu
+worker1 ansible_host=43.155.161.10 ansible_user=root
+worker2 ansible_host=43.131.250.102 ansible_user=root
+worker3 ansible_host=43.155.183.145 ansible_user=root
+
+[others]
+other1 ansible_host=43.131.242.103 ansible_user=root
 
 [all:vars]
 ansible_python_interpreter=/usr/bin/python3

@@ -3,4 +3,12 @@
   become: yes
   tasks:
     - name: install jdk11
-      shell: sudo apt install default-jdk -y
+      ansible.builtin.apt:
+        name:
+            - default-jre
+        update_cache: true
+    - name: install default-jdk
+      ansible.builtin.apt:
+        name:
+            - default-jdk
+        update_cache: true
