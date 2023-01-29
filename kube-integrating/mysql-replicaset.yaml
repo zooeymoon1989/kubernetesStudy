@@ -1,26 +1,40 @@
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
-  name: simple-golang
+  name: mysql
   labels:
-    run: simple-golang
-    version: "1"
+    app: mysql
 spec:
 # modify replicas according to your case
   replicas: 1
   selector:
     matchLabels:
-      run: simple-golang
-      version: "1"
+      app: mysql
   template:
     metadata:
       labels:
-        run: simple-golang
-        version: "1"
+        app: mysql
     spec:
       containers:
-      - name: simple-golang
-        image: zooeymoon1989/simple-golang:latest
+      - name: database
+        image: mysql:latest
+        # Environment variables are not a best practice for security,
+        # but we're using them here for brevity in the example.
+        # See Chapter 11 for better options.
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: some-password-here
+        livenessProbe:
+          tcpSocket:
+            port: 3306
         ports:
-        - containerPort: 3000
+        - containerPort: 3306
+        volumeMounts:
+          - name: database
+            # /var/lib/mysql is where MySQL stores its databases
+            mountPath: "/var/lib/mysql"
+    volumes:
+      - name: database
+        persistentVolumeClaim:
+          claimName: database
         
