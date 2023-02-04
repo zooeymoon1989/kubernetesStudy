@@ -1,0 +1,10 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+
+    - name: Update repositories cache and install "git" package
+      ansible.builtin.apt:
+        name: git
+        update_cache: yes
+        state: latest
