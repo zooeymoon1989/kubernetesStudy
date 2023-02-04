@@ -4,7 +4,7 @@
   tasks:
     - name: download golang sdk files
       ansible.builtin.get_url:
-        url: https://go.dev/dl/go1.19.5.linux-amd64.tar.gz
+        url: https://go.dev/dl/go1.20.linux-amd64.tar.gz
         dest: ~/
         force_basic_auth: yes
 

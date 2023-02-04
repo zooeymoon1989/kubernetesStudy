@@ -8,6 +8,7 @@ worker3 ansible_host=43.155.183.145 ansible_user=root
 
 [others]
 other1 ansible_host=43.131.242.103 ansible_user=root
+other1 ansible_host=43.155.180.89 ansible_user=root
 
 [all:vars]
 ansible_python_interpreter=/usr/bin/python3
