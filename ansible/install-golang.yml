@@ -15,7 +15,7 @@
 
     - name: unarchive tar file to /usr/local
       unarchive:
-        src: ~/go1.19.5.linux-amd64.tar.gz
+        src: ~/go1.20.linux-amd64.tar.gz
         dest: /usr/local
         remote_src: yes
     
@@ -25,5 +25,5 @@
 
     - name: remove golang tar file
       ansible.builtin.file:
-        path: ~/go1.19.5.linux-amd64.tar.gz
+        path: ~/go1.20.linux-amd64.tar.gz
         state: absent
