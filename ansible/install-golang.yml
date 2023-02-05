@@ -2,6 +2,12 @@
 - hosts: all
   become: yes
   tasks:
+
+    - name: delete golang sdk files
+      ansible.builtin.file:
+        path: /usr/local/go
+        state: absent
+
     - name: download golang sdk files
       ansible.builtin.get_url:
         url: https://go.dev/dl/go1.20.linux-amd64.tar.gz
