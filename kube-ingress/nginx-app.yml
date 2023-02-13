@@ -28,7 +28,9 @@ kind: Service
 metadata:
   name: nginx-app
   annotations:
-    service.kubernetes.io/qcloud-loadbalancer-internal-subnetid: subnet-xxxxx
+    lb.kubesphere.io/v1alpha1: openelb
+    protocol.openelb.kubesphere.io/v1alpha1: layer2
+    eip.openelb.kubesphere.io/v1alpha2: eip-pool
 spec:
   type: LoadBalancer
   selector:
