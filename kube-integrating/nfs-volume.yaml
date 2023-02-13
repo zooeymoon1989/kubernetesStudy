@@ -10,5 +10,5 @@ spec:
   capacity:
     storage: 1Gi
   nfs:
-    server: 10.0.0.14
-    path: "/var/nfs/general"
+    server: 10.0.0.11
+    path: "/vdb/mysql-db"
