@@ -1,0 +1,46 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: data-consul-consul-server-0
+  namespace: consul
+spec:
+  accessModes:
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
+  selector:
+    matchLabels:
+     volume: data-consul-consul-server-0
+
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: data-consul-consul-server-1
+  namespace: consul
+spec:
+  accessModes:
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
+  selector:
+    matchLabels:
+     volume: data-consul-consul-server-1
+
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: data-consul-consul-server-2
+  namespace: consul
+spec:
+  accessModes:
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
+  selector:
+    matchLabels:
+     volume: data-consul-consul-server-2
