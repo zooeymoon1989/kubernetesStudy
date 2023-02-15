@@ -16,12 +16,12 @@ spec:
 
 ---
 apiVersion: v1
-kind: data-consul-consul-server-1
+kind: PersistentVolume
 metadata:
   name: data-consul-consul-server-1
   namespace: consul
   labels:
-    volume: my-volume
+    volume: data-consul-consul-server-1
 spec:
   accessModes:
   - ReadWriteMany
