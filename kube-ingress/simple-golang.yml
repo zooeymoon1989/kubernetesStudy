@@ -14,8 +14,8 @@ spec:
     metadata:
       labels:
         run: simple-golang
-      annotations: 
-        consul.hashicorp.com/connect-inject: "true"
+      # annotations: 
+      #   consul.hashicorp.com/connect-inject: "true"
     spec:
       containers:
       - name: simple-golang
