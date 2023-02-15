@@ -28,7 +28,7 @@ kind: Service
 metadata:
   name: simple-golang
   annotations:
-    service.kubernetes.io/qcloud-loadbalancer-internal-subnetid: subnet-xxxxx
+    service.kubernetes.io/qcloud-loadbalancer-internal-subnetid: subnet-ppgcg0iy
 spec:
   type: LoadBalancer
   selector:
