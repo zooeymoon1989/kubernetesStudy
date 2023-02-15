@@ -10,7 +10,7 @@ spec:
   capacity:
     storage: 1Gi
   nfs:
-    server: 43.159.40.114
+    server: 172.22.16.12
     path: "/data1/v0/"
 
 ---
