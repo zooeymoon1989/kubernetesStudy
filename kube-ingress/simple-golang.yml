@@ -4,8 +4,6 @@ metadata:
   name: simple-golang
   labels:
     run: simple-golang
-  annotations:
-    consul.hashicorp.com/connect-inject: "true"
 spec:
   # modify replicas according to your case
   replicas: 3
@@ -30,10 +28,14 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: simple-golang
-  annotations:
-    service.kubernetes.io/qcloud-loadbalancer-internal-subnetid: subnet-ppgcg0iy
+  name: simple-golang    
 spec:
+  template: 
+    metadata:
+      labels:
+        run: simple-golang
+      annotations: 
+        service.kubernetes.io/qcloud-loadbalancer-internal-subnetid: subnet-ppgcg0iy
   type: LoadBalancer
   selector:
     run: simple-golang
