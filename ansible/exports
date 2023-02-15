@@ -1,0 +1,3 @@
+/data1               172.22.16.14(rw,sync,no_root_squash,no_subtree_check)
+/data1               172.22.16.10(rw,sync,no_root_squash,no_subtree_check)
+/data1               172.22.16.5(rw,sync,no_root_squash,no_subtree_check)

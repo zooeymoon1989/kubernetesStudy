@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: data-consul-consul-server-0
+  labels:
+    volume: data-consul-consul-server-0
+spec:
+  accessModes:
+  - ReadWriteMany
+  capacity:
+    storage: 1Gi
+  nfs:
+    server: 43.159.40.114
+    path: "/data1/v0/"
+
+---
+apiVersion: v1
+kind: data-consul-consul-server-1
+metadata:
+  name: data-consul-consul-server-1
+  labels:
+    volume: my-volume
+spec:
+  accessModes:
+  - ReadWriteMany
+  capacity:
+    storage: 1Gi
+  nfs:
+    server: 172.22.16.12
+    path: "/data1/v1/"
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: data-consul-consul-server-2
+  labels:
+    volume: data-consul-consul-server-2
+spec:
+  accessModes:
+  - ReadWriteMany
+  capacity:
+    storage: 1Gi
+  nfs:
+    server: 172.22.16.12
+    path: "/data1/v2"
+
