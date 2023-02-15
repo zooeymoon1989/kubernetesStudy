@@ -30,9 +30,7 @@ metadata:
   annotations:
     service.kubernetes.io/qcloud-loadbalancer-internal-subnetid: subnet-xxxxx
 spec:
-  # type: LoadBalancer
-  type: ExternalName
-  externalName: www.liwenqiang.site
+  type: LoadBalancer
   selector:
     run: simple-golang
   ports:
