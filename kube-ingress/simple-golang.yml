@@ -4,6 +4,8 @@ metadata:
   name: simple-golang
   labels:
     run: simple-golang
+  annotations:
+    consul.hashicorp.com/connect-inject: "true"
 spec:
   # modify replicas according to your case
   replicas: 3
