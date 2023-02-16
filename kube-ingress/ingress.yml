@@ -9,14 +9,14 @@ spec:
     http:
       paths:
       - pathType: Prefix
-        path: /
+        path: /foo
         backend:
           service:
             name: simple-golang
             port:
               number: 80
-      - pathType: Prefix
-        path: /node/
+      - pathType: Exact
+        path: /node
         backend:
           service:
             name: simple-node
