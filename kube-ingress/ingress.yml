@@ -9,16 +9,17 @@ spec:
     http:
       paths:
       - pathType: Prefix
-        path: /
+        path: /golang
         backend:
           service:
             name: simple-golang
             port:
               number: 80
-      # - pathType: Prefix
-      #   path: /node
-      #   backend:
-      #     service:
-      #       name: simple-node
-      #       port:
-      #         number: 80
+      - pathType: Prefix
+        path: /node
+        backend:
+          service:
+            name: simple-node
+            port:
+              number: 80
+
