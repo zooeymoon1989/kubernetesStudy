@@ -15,9 +15,6 @@ spec:
             name: simple-golang
             port:
               number: 80
-  - host: alpaca.example.com
-    http:
-      paths:
       - pathType: Prefix
         path: /node
         backend:
