@@ -4,33 +4,23 @@ metadata:
   name: simple-ingress
 spec: 
   rules:
-  # - host: www.liwenqiang.site
-  #   http:
-  #     paths:
-  #     - pathType: Prefix
-  #       path: "/"
-  #       backend:
-  #         service:
-  #           name: nginx-app
-  #           port:
-  #             number: 80
-  - host: golang.example.com
+  - host: alapaca.example.com
     http:
       paths:
       - pathType: Prefix
-        path: /
+        path: /golang
         backend:
           service:
             name: simple-golang
             port:
               number: 80
-  # - host: node.liwenqiang.site
-  #   http:
-  #     paths:
-  #     - pathType: Prefix
-  #       path: "/"
-  #       backend:
-  #         service:
-  #           name: simple-node
-  #           port:
-  #             number: 80
+  - host: alapaca.example.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: /node
+        backend:
+          service:
+            name: simple-node
+            port:
+              number: 80
