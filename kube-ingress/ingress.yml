@@ -5,7 +5,7 @@ metadata:
 spec: 
   ingressClassName: contour
   rules:
-  - host: alpaca.example.com
+  - host: golang.example.com
     http:
       paths:
       - pathType: Prefix
@@ -15,11 +15,14 @@ spec:
             name: simple-golang
             port:
               number: 80
-      # - pathType: Exact
-      #   path: /node
-      #   backend:
-      #     service:
-      #       name: simple-node
-      #       port:
-      #         number: 80
+  - host: node.example.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: simple-node
+            port:
+              number: 80
 
