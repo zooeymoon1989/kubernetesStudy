@@ -14,11 +14,11 @@ spec:
   #           name: nginx-app
   #           port:
   #             number: 80
-  - host: www.liwenqiang.site
+  - host: localhost
     http:
       paths:
       - pathType: Prefix
-        path: "/golang"
+        path: "/"
         backend:
           service:
             name: simple-golang
