@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: host-ingress
 spec: 
-  # ingressClassName: envoy
+  ingressClassName: contour
   rules:
   - host: alpaca.example.com
     http:
