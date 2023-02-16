@@ -4,7 +4,7 @@ metadata:
   name: simple-ingress
 spec: 
   rules:
-  - host: alapaca.example.com
+  - host: alpaca.example.com
     http:
       paths:
       - pathType: Prefix
@@ -14,7 +14,7 @@ spec:
             name: simple-golang
             port:
               number: 80
-  - host: alapaca.example.com
+  - host: alpaca.example.com
     http:
       paths:
       - pathType: Prefix
