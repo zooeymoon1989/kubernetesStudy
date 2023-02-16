@@ -36,3 +36,5 @@ spec:
     protocol: TCP
     port: 80
     targetPort: 3000
+  externalIPs:
+    - 129.226.216.230
