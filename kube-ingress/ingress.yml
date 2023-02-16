@@ -14,7 +14,7 @@ spec:
   #           name: nginx-app
   #           port:
   #             number: 80
-  - host: localhost
+  - host: www.liwenqiang.site
     http:
       paths:
       - pathType: Prefix
