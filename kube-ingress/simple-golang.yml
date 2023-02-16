@@ -32,7 +32,7 @@ metadata:
   annotations:
     service.kubernetes.io/qcloud-loadbalancer-internal-subnetid: subnet-ppgcg0iy
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     run: simple-golang
   ports:
