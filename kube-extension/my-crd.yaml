@@ -13,19 +13,19 @@ spec:
       served: true
       # 其中一个且只有一个版本必需被标记为存储版本
       storage: true
-      # schema:
-      #   openAPIV3Schema:
-      #     type: object
-      #     properties:
-      #       spec:
-      #         type: object
-      #         properties:
-      #           cronSpec:
-      #             type: string
-      #           image:
-      #             type: string
-      #           replicas:
-      #             type: integer
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              properties:
+                cronSpec:
+                  type: string
+                image:
+                  type: string
+                replicas:
+                  type: integer
   # 可以是 Namespaced 或 Cluster
   scope: Namespaced
   names:
