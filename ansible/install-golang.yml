@@ -10,7 +10,7 @@
 
     - name: download golang sdk files
       ansible.builtin.get_url:
-        url: https://go.dev/dl/go1.20.1.linux-amd64.tar.gz
+        url: https://go.dev/dl/go1.20.2.linux-amd64.tar.gz
         dest: ~/
         force_basic_auth: yes
 
@@ -21,15 +21,15 @@
 
     - name: unarchive tar file to /usr/local
       unarchive:
-        src: ~/go1.20.1.linux-amd64.tar.gz
+        src: ~/go1.20.2.linux-amd64.tar.gz
         dest: /usr/local
         remote_src: yes
     
     - name: export PATH=$PATH:/usr/local/go/bin
       ansible.builtin.shell:
-        cmd: echo export PATH=$PATH:/usr/local/go/bin >> ~/.profile
+        cmd: echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.zshrc
 
     - name: remove golang tar file
       ansible.builtin.file:
-        path: ~/go1.20.1.linux-amd64.tar.gz
+        path: ~/go1.20.2.linux-amd64.tar.gz
         state: absent
