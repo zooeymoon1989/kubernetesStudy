@@ -5,7 +5,7 @@ metadata:
   labels:
     app: simple-golang
 spec:
-  replicas: 3
+  replicas: 4
   selector:
     matchLabels:
       app: simple-golang
@@ -18,11 +18,11 @@ spec:
       - name: simple-golang
         image: zooeymoon1989/simple-golang:latest
         ports:
-        - containerPort: 8080
+        - containerPort: 18080
         readinessProbe:
           httpGet:
             path: /ping
-            port: 8080
+            port: 18080
           initialDelaySeconds: 5
           periodSeconds: 10
           failureThreshold: 3
@@ -37,6 +37,6 @@ spec:
     app: simple-golang
   ports:
     - protocol: TCP
-      port: 8080
+      port: 18080
       targetPort: 80
   type: ClusterIP
