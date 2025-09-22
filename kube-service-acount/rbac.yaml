@@ -1,8 +1,8 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: gateway-controller
-rules:  
+  name: traefik-gateway-role
+rules:
   - apiGroups: ["gateway.networking.k8s.io"]
     resources: ["gateways","gatewayclasses","httproutes"]
     verbs: ["get","list","watch"]
@@ -13,12 +13,12 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: gateway-controller
+  name: traefik-gateway-rb
 subjects:
   - kind: ServiceAccount
-    name: gateway-controller
+    name: traefik-gw-sa
     namespace: default
 roleRef:
   kind: ClusterRole
-  name: gateway-controller
+  name: traefik-gateway-role
   apiGroup: rbac.authorization.k8s.io
