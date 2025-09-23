@@ -1,0 +1,26 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: traefik-gateway
+  namespace: default
+spec:
+  gatewayClassName: traefik
+  listeners:
+  - name: http
+    protocol: HTTP
+    port: 10080
+    # hostname 可以先不写，直接用 IP 测试
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: simple-golang-route
+  namespace: default
+spec:
+  parentRefs:
+  - name: traefik-gateway
+    namespace: default
+  rules:
+  - backendRefs:
+    - name: simple-golang
+      port: 80
