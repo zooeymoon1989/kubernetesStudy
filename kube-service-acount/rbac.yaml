@@ -5,15 +5,15 @@ metadata:
 rules:
   # Gateway API
   - apiGroups: ["gateway.networking.k8s.io"]
-    resources: ["gateways","gatewayclasses","httproutes","grpcroutes","tlsroutes","tcproutes","udproutes","referencegrants"]
+    resources: ["gateways","gatewayclasses","httproutes","grpcroutes","tcproutes","udproutes","referencegrants"]
     verbs: ["get","list","watch"]
 
-  # Core K8s 资源
+  # Core API
   - apiGroups: [""]
     resources: ["services","pods","namespaces","secrets"]
     verbs: ["get","list","watch"]
 
-  # EndpointSlice 发现
+  # EndpointSlice
   - apiGroups: ["discovery.k8s.io"]
     resources: ["endpointslices"]
     verbs: ["get","list","watch"]
