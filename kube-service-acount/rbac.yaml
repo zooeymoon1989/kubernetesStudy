@@ -14,12 +14,12 @@ rules:
     resources: ["gateways","gatewayclasses","httproutes","grpcroutes","tcproutes","udproutes","referencegrants"]
     verbs: ["get","list","watch"]
 
-  # Core API 资源（Service、Pod、Namespace、Secret）
+  # Core API
   - apiGroups: [""]
     resources: ["services","pods","namespaces","secrets","endpoints"]
     verbs: ["get","list","watch"]
 
-  # EndpointSlice 发现
+  # EndpointSlice (Service发现)
   - apiGroups: ["discovery.k8s.io"]
     resources: ["endpointslices"]
     verbs: ["get","list","watch"]
