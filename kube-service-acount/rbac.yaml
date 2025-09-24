@@ -12,7 +12,7 @@ rules:
   # Gateway API
   - apiGroups: ["gateway.networking.k8s.io"]
     resources: ["gateways","gatewayclasses","httproutes","grpcroutes","tcproutes","udproutes","referencegrants"]
-    verbs: ["get","list","watch"]
+    verbs: ["get","list","watch","update","patch"]
 
   # Core v1
   - apiGroups: [""]
