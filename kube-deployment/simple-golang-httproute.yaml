@@ -29,5 +29,5 @@ spec:
         type: PathPrefix
         value: /
     backendRefs:
-    - name: simple-golang-svc
+    - name: simple-golang
       port: 80
