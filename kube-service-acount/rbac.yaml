@@ -3,15 +3,17 @@ kind: ClusterRole
 metadata:
   name: traefik-gateway-role
 rules:
-- apiGroups: ["gateway.networking.k8s.io"]
-  resources: ["gatewayclasses","gateways","httproutes","referencegrants","grpcroutes","tcproutes","udproutes"]
-  verbs: ["get","list","watch"]
-- apiGroups: [""]
-  resources: ["services","endpoints","pods","namespaces","secrets"]
-  verbs: ["get","list","watch"]
-- apiGroups: ["discovery.k8s.io"]
-  resources: ["endpointslices"]
-  verbs: ["get","list","watch"]
+  - apiGroups: ["gateway.networking.k8s.io"]
+    resources: ["gateways","gatewayclasses","httproutes"]
+    verbs: ["get","list","watch"]
+
+  - apiGroups: [""]
+    resources: ["services","pods","namespaces","secrets"]
+    verbs: ["get","list","watch"]
+
+  - apiGroups: ["discovery.k8s.io"]
+    resources: ["endpointslices"]
+    verbs: ["get","list","watch"]
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
