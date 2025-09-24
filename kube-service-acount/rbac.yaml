@@ -3,14 +3,17 @@ kind: ClusterRole
 metadata:
   name: traefik-gateway-role
 rules:
+  # Gateway API
   - apiGroups: ["gateway.networking.k8s.io"]
-    resources: ["gateways","gatewayclasses","httproutes"]
+    resources: ["gateways","gatewayclasses","httproutes","grpcroutes","tlsroutes","tcproutes","udproutes","referencegrants"]
     verbs: ["get","list","watch"]
 
+  # Core K8s 资源
   - apiGroups: [""]
     resources: ["services","pods","namespaces","secrets"]
     verbs: ["get","list","watch"]
 
+  # EndpointSlice 发现
   - apiGroups: ["discovery.k8s.io"]
     resources: ["endpointslices"]
     verbs: ["get","list","watch"]
