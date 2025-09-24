@@ -1,19 +1,25 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: traefik-gw-sa
+  namespace: default
+---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: traefik-gateway-role
 rules:
-  # Gateway API
+  # Gateway API 相关
   - apiGroups: ["gateway.networking.k8s.io"]
     resources: ["gateways","gatewayclasses","httproutes","grpcroutes","tcproutes","udproutes","referencegrants"]
     verbs: ["get","list","watch"]
 
-  # Core API
+  # Core API 资源（Service、Pod、Namespace、Secret）
   - apiGroups: [""]
-    resources: ["services","pods","namespaces","secrets"]
+    resources: ["services","pods","namespaces","secrets","endpoints"]
     verbs: ["get","list","watch"]
 
-  # EndpointSlice
+  # EndpointSlice 发现
   - apiGroups: ["discovery.k8s.io"]
     resources: ["endpointslices"]
     verbs: ["get","list","watch"]
@@ -22,11 +28,11 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: traefik-gateway-rb
+subjects:
+  - kind: ServiceAccount
+    name: traefik-gw-sa
+    namespace: default
 roleRef:
-  apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
   name: traefik-gateway-role
-subjects:
-- kind: ServiceAccount
-  name: traefik-gw-sa
-  namespace: default
+  apiGroup: rbac.authorization.k8s.io
