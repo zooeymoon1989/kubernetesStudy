@@ -1,26 +1,26 @@
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
-  name: simple-golang
+  name: simple-node
   labels:
-    run: simple-golang
+    run: simple-node
     version: "1"
 spec:
 # modify replicas according to your case
   replicas: 1
   selector:
     matchLabels:
-      run: simple-golang
+      run: simple-node
       version: "1"
   template:
     metadata:
       labels:
-        run: simple-golang
+        run: simple-node
         version: "1"
     spec:
       containers:
-      - name: simple-golang
-        image: zooeymoon1989/simple-golang:latest
+      - name: simple-node
+        image: zooeymoon1989/simple-node:latest
         ports:
         - containerPort: 3000
         
