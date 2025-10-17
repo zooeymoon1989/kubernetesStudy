@@ -4,7 +4,7 @@ metadata:
   name: simple-golang
   namespace: default
 spec:
-  replicas: 9
+  replicas: 4
   selector:
     matchLabels:
       app: simple-golang
@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: simple-golang
-        image: zooeymoon1989/simple-node
+        image: zooeymoon1989/simple-golang
         imagePullPolicy: Always
         ports:
         - containerPort: 80
@@ -31,4 +31,4 @@ spec:
   ports:
   - protocol: TCP
     port: 80
-    targetPort: 3000
+    targetPort: 80
