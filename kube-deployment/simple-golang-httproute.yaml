@@ -8,7 +8,7 @@ spec:
   listeners:
   - name: http
     protocol: HTTP
-    port: 8888
+    port: 80
     hostname: www.osuk8s.site
 
 ---
