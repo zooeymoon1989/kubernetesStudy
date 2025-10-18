@@ -3,6 +3,8 @@ kind: Deployment
 metadata:
   name: simple-golang
   namespace: default
+  annotations:
+    kubernetes.io/change-cause: "updated image to v2 - optimized API"
 spec:
   replicas: 4
   selector:
