@@ -1,29 +1,26 @@
-# traefik-gateway-rbac.yaml
+---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: traefik-gw-sa
   namespace: default
+
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: traefik-gateway-role
 rules:
-  # Gateway API 权限
-  - apiGroups: ["gateway.networking.k8s.io"]
-    resources: ["gatewayclasses", "gateways", "httproutes", "grpcroutes", "tcproutes", "udproutes", "referencegrants"]
-    verbs: ["get", "list", "watch"]
-
-  # 核心资源
   - apiGroups: [""]
-    resources: ["services", "endpoints", "endpointslices", "pods", "namespaces", "secrets"]
+    resources: ["services", "endpoints", "secrets", "namespaces"]
     verbs: ["get", "list", "watch"]
-
-  # Discovery 资源
+  - apiGroups: ["gateway.networking.k8s.io"]
+    resources: ["gatewayclasses", "gateways", "httproutes", "referencegrants"]
+    verbs: ["get", "list", "watch"]
   - apiGroups: ["discovery.k8s.io"]
     resources: ["endpointslices"]
     verbs: ["get", "list", "watch"]
+
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
