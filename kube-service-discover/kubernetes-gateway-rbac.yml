@@ -15,7 +15,14 @@ rules:
     resources: ["services", "endpoints", "secrets", "namespaces"]
     verbs: ["get", "list", "watch"]
   - apiGroups: ["gateway.networking.k8s.io"]
-    resources: ["gatewayclasses", "gateways", "httproutes", "referencegrants"]
+    resources:
+      - "gatewayclasses"
+      - "gateways"
+      - "httproutes"
+      - "grpcroutes"
+      - "tlsroutes"
+      - "tcproutes"
+      - "referencegrants"
     verbs: ["get", "list", "watch"]
   - apiGroups: ["discovery.k8s.io"]
     resources: ["endpointslices"]
