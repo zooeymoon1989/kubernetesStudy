@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: worker
-        image: "gcr.io/kuar-demo/kuard-amd64:blue"
+        image: "jmutai/kuard-amd64:blue"
         imagePullPolicy: Always
         args:
         - "./kuard"
