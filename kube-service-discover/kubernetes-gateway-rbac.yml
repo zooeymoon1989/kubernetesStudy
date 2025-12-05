@@ -12,7 +12,7 @@ metadata:
   name: traefik-gateway-role
 rules:
   - apiGroups: [""]
-    resources: ["services", "endpoints", "secrets", "namespaces"]
+    resources: ["services", "endpoints", "secrets", "namespaces","configmaps"]
     verbs: ["get", "list", "watch"]
   - apiGroups: ["gateway.networking.k8s.io"]
     resources:
@@ -23,7 +23,7 @@ rules:
       - "tcproutes"
       - "tlsroutes"
       - "referencegrants"
-      # - "backendtlspolicies"
+      - "backendtlspolicies"
     verbs: ["get", "list", "watch"]
   - apiGroups: ["discovery.k8s.io"]
     resources: ["endpointslices"]
