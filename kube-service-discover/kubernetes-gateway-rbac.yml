@@ -23,7 +23,7 @@ rules:
       - "tcproutes"
       - "tlsroutes"
       - "referencegrants"
-      - "backendtlspolicies"
+      # - "backendtlspolicies"
     verbs: ["get", "list", "watch"]
   - apiGroups: ["discovery.k8s.io"]
     resources: ["endpointslices"]
