@@ -35,6 +35,8 @@ kind: HTTPRoute
 metadata:
   name: simple-golang-route
   namespace: default
+  annotations:
+    traefik.io/router.tls.certresolver: letsencrypt
 spec:
   parentRefs:
   - name: traefik-gateway
