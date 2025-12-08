@@ -58,6 +58,8 @@ kind: HTTPRoute
 metadata:
   name: longhorn-route
   namespace: longhorn-system
+  annotations:
+    traefik.io/router.tls.certresolver: letsencrypt
 spec:
   parentRefs:
   - name: traefik-gateway
