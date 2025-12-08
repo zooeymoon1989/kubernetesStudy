@@ -17,6 +17,17 @@ spec:
     allowedRoutes:
       namespaces:
         from: All
+  - name: https
+    protocol: HTTPS
+    port: 443
+    hostname: "*.osuk8s.site"
+    tls:
+      mode: Terminate
+      certificateRefs:
+      - name: traefik-cert
+    allowedRoutes:
+      namespaces:
+        from: All
 
 ---
 apiVersion: gateway.networking.k8s.io/v1
