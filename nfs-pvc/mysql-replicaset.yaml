@@ -23,7 +23,7 @@ spec:
             cpu: "500m"
         env:
         - name: MYSQL_ROOT_PASSWORD
-          value: 2863186
+          value: "2863186"
         livenessProbe:
           tcpSocket:
             port: 3306
