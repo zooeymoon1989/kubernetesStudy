@@ -5,7 +5,7 @@ metadata:
   namespace: default
 spec:
   entryPoints:
-    - tcp
+    - mysql
   routes:
     - match: HostSNI(`*`)
       services:
