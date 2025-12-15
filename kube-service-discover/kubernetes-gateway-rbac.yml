@@ -30,7 +30,7 @@ rules:
     verbs: ["get", "list", "watch"]
     # status subresources (write)
   - apiGroups: ["gateway.networking.k8s.io"]
-    resources: ["gatewayclasses/status","gateways/status","httproutes/status","grpcroutes/status","backendtlspolicies/status"]
+    resources: ["gateways/status","httproutes/status","grpcroutes/status","backendtlspolicies/status"]
     verbs: ["update","patch"]
     # Events (optional but useful)
   - apiGroups: [""]
