@@ -1,0 +1,34 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: traefik-gw-sa-core
+rules:
+  # 必须：Node informer
+  - apiGroups: [""]
+    resources: ["nodes"]
+    verbs: ["get", "list", "watch"]
+
+  # Gateway API status（你之前已经看到 forbidden）
+  - apiGroups: ["gateway.networking.k8s.io"]
+    resources:
+      - gatewayclasses/status
+      - gateways/status
+      - httproutes/status
+      - tcproutes/status
+      - grpcroutes/status
+    verbs: ["update", "patch"]
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: traefik-gw-sa-core-binding
+subjects:
+  - kind: ServiceAccount
+    name: traefik-gw-sa
+    namespace: default
+roleRef:
+  kind: ClusterRole
+  name: traefik-gw-sa-core
+  apiGroup: rbac.authorization.k8s.io
