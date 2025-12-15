@@ -12,7 +12,7 @@ metadata:
   name: traefik-gateway-role
 rules:
   - apiGroups: [""]
-    resources: ["services", "endpoints", "secrets", "namespaces","configmaps"]
+    resources: ["services", "endpoints", "secrets", "namespaces","configmaps","pods"]
     verbs: ["get", "list", "watch"]
   - apiGroups: ["gateway.networking.k8s.io"]
     resources:
@@ -28,6 +28,14 @@ rules:
   - apiGroups: ["discovery.k8s.io"]
     resources: ["endpointslices"]
     verbs: ["get", "list", "watch"]
+    # status subresources (write)
+  - apiGroups: ["gateway.networking.k8s.io"]
+    resources: ["gatewayclasses/status","gateways/status","httproutes/status","grpcroutes/status","backendtlspolicies/status"]
+    verbs: ["update","patch"]
+    # Events (optional but useful)
+  - apiGroups: [""]
+    resources: ["events"]
+    verbs: ["create","patch"]
 
 ---
 apiVersion: rbac.authorization.k8s.io/v1
