@@ -23,16 +23,15 @@ spec:
       labels:
         app: mongo
     spec:
-      initContainers:
+      containers:
       - name: init-mongo
-        image: mongo
+        mage: mongo
         command:
           - /bin/bash
           - /config/init.sh
         volumeMounts:
         - name: config
           mountPath: /config
-      containers:
       - name: mongodb
         image: mongo
         command:
