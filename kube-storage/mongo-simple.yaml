@@ -23,6 +23,15 @@ spec:
       labels:
         app: mongo
     spec:
+      initContainers:
+      - name: init-mongo
+        image: mongo
+        command:
+          - /bin/bash
+          - /config/init.sh
+        volumeMounts:
+        - name: config
+          mountPath: /config
       containers:
       - name: mongodb
         image: mongo
@@ -34,12 +43,6 @@ spec:
         ports:
         - containerPort: 27017
           name: peer
-        lifecycle:
-          postStart:
-            exec:
-              command:
-                - /bin/bash
-                - /config/init.sh
         volumeMounts:
         - name: config
           mountPath: /config
