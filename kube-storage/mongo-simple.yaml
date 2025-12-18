@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
       - name: init-mongo
-        mage: mongo
+        image: mongo
         command:
           - /bin/bash
           - /config/init.sh
