@@ -1,0 +1,46 @@
+apiVerison: v1
+kind: ConfigMap
+metadata:
+  name: mongo-init
+data:
+  init.sh: |
+    #!/bin/bash
+    # Need to wait for the readiness health check to pass so that the
+    # Mongo names resolve. This is kind of wonky.
+    until getent hosts "${HOSTNAME}.mongo" >/dev/null 2>&1; do
+      echo "waiting for DNS..."
+      sleep 2
+    done
+
+    until /usr/bin/mongosh --eval 'db.runCommand({ ping: 1 })'; do
+      echo "connecting to local mongo..."
+      sleep 2
+    done
+    echo "connected to local."
+
+    HOST=mongo-0.mongo:27017
+
+    until /usr/bin/mongosh --host=${HOST} --eval 'db.runCommand({ ping: 1 })'; do
+      echo "connecting to remote mongo..."
+      sleep 2
+    done
+    echo "connected to remote."
+
+    if [[ "${HOSTNAME}" != 'mongo-0' ]]; then
+      until /usr/bin/mongosh --host=${HOST} --eval="db.runCommand({ ping: 1 })" \
+            | grep -v "no replset config has been received"; do
+        echo "waiting for replication set initialization"
+        sleep 2
+      done
+      echo "adding self to mongo-0"
+      /usr/bin/mongosh --host=${HOST} \
+        --eval="printjson(rs.add('${HOSTNAME}.mongo'))"
+    fi
+
+    if [[ "${HOSTNAME}" == 'mongo-0' ]]; then
+      echo "initializing replica set"
+      /usr/bin/mongosh --eval="printjson(rs.initiate(\
+          {'_id': 'rs0', 'members': [{'_id': 0, \
+          'host': 'mongo-0.mongo:27017'}]}))"
+    fi
+    echo "initialized"
