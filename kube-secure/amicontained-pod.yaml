@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
   - name: amicontained
-    image: r.j3ss.co/amicontained
+    image: jess/amicontained:v0.4.9
     command: [ "/bin/sh", "-c","--" ]
     args:
       - amicontained
