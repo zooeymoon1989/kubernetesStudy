@@ -3,7 +3,7 @@ kind: Pod
 metadata:
   name: amicontained
   annotations:
-    container.apparmor.security.beta.kubernetes.io/amicontained: "runtime/default"
+    container.apparmor.security.beta.kubernetes.io/appArmorProfile: "runtime/default"
 spec:
   securityContext:
     runAsNonRoot: true
