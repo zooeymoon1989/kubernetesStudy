@@ -23,6 +23,6 @@ spec:
     spec:
       containers:
       - name: bandicoot-prod
-        image: gcr.io/kuar-demo/kuard-amd64:green
+        image: jmutai/kuard-amd64
         ports:
         - containerPort: 8080
