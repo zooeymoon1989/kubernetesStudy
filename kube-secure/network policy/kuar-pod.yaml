@@ -6,7 +6,7 @@ metadata:
     app: kuard
 spec:
   containers:
-    - image: gcr.io/kuar-demo/kuard-amd64:blue
+    - image: gcr.io/kuar-demo/kuard-amd64
       name: kuard
       ports:
         - containerPort: 8080
