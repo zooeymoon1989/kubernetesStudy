@@ -3,6 +3,7 @@ kind: K8sAllowedRepos
 metadata:
   name: repo-is-kuar-demo
 spec:
+  # 这里说明如果不遵守该策略的Pod将被拒绝创建
   enforcementAction: deny
   match:
     kinds:
