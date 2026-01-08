@@ -1,0 +1,9 @@
+apiVersion: apps.osuk8s.site/v1alpha1
+kind: SimpleGolangApp
+metadata:
+  name: simple-golang
+  namespace: default
+spec:
+  image: zooeymoon1989/simple-golang:latest
+  replicas: 3
+  port: 80
