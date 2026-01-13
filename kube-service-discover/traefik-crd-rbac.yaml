@@ -16,6 +16,31 @@ rules:
       - serverstransporttcps
       - traefikservices
     verbs: ["get", "list", "watch"]
+  # Gateway API（你正在用）
+  - apiGroups: ["gateway.networking.k8s.io"]
+    resources:
+      - "gatewayclasses"
+      - "gateways"
+      - "httproutes"
+      - "grpcroutes"
+      - "tcproutes"
+      - "tlsroutes"
+      - "referencegrants"
+      - "backendtlspolicies"
+    verbs: ["get","list","watch"]
+  # EndpointSlice（很多实现会用）
+  - apiGroups: ["discovery.k8s.io"]
+    resources: ["endpointslices"]
+    verbs: ["get","list","watch"]
+  # core
+  - apiGroups: [""]
+    resources: ["services","endpoints","secrets","configmaps","pods","nodes","namespaces"]
+    verbs: ["get","list","watch"]
+
+  # apps
+  - apiGroups: ["apps"]
+    resources: ["deployments","replicasets"]
+    verbs: ["get","list","watch"]
 
 ---
 apiVersion: rbac.authorization.k8s.io/v1
