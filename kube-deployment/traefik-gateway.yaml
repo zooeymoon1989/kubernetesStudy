@@ -18,3 +18,9 @@ spec:
     allowedRoutes:
       namespaces:
         from: All
+    hostname: "*.osuk8s.site"
+    tls:
+      mode: Terminate
+      certificateRefs:
+      - kind: Secret
+        name: osuk8s-site-tls
