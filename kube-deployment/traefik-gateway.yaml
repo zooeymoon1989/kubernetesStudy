@@ -9,18 +9,19 @@ spec:
   - name: web
     protocol: HTTP
     port: 80
-    allowedRoutes:
-      namespaces:
-        from: All
-  - name: websecure
-    protocol: HTTPS
-    port: 443
-    allowedRoutes:
-      namespaces:
-        from: All
     hostname: "*.osuk8s.site"
-    tls:
-      mode: Terminate
-      certificateRefs:
-      - kind: Secret
-        name: osuk8s-site-tls
+    allowedRoutes:
+      namespaces:
+        from: All
+  # - name: websecure
+  #   protocol: HTTPS
+  #   port: 443
+  #   allowedRoutes:
+  #     namespaces:
+  #       from: All
+  #   hostname: "*.osuk8s.site"
+  #   tls:
+  #     mode: Terminate
+  #     certificateRefs:
+  #     - kind: Secret
+  #       name: osuk8s-site-tls
